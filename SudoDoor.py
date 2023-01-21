@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import Menu
+import threading
 import listener
 
 def toggleFullscreen(e):
@@ -14,6 +15,13 @@ def toggleFullscreen(e):
         toggled = False
 
 toggled = False
+
+def startListener(port):
+    listener.listen("0.0.0.0", 9001)
+
+def startListenThread(port):
+    _listener = threading.Thread(target=startListener, args=(port))
+    _listener.start()
 
 #Initiating Window
 root = tk.Tk()
@@ -37,8 +45,14 @@ root.configure(menu=menubar)
 listener_menu = Menu(menubar)
 
 listener_menu.add_command(
-    label="Start Listener",
-    command=listener.listen("0.0.0.0", 9001)
+    label ='Start Listener',
+    command = lambda: startListenThread(9001)
+)
+
+menubar.add_cascade(
+    label="Listener",
+    menu=listener_menu,
+    underline=0
 )
 
 root.mainloop()
