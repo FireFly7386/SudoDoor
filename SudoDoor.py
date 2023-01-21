@@ -26,4 +26,7 @@ except:
 #Toggle Fullscreen
 root.bind('<Control-Shift-KeyPress-F>', toggleFullscreen)
 
+#Make background color dark
+root.configure(bg="#272727")
+
 root.mainloop()
