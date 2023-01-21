@@ -24,7 +24,7 @@ def listen(ip,port):
         #Send command
         command += "\n"
         conn.send(command.encode())
-        time.sleep(1)
+        time.sleep(0.1)
 
         #Remove the output of the "input()" function
         sys.stdout.write("\033[A" + ans.split("\n")[-1])
