@@ -20,7 +20,7 @@ def startListener(port):
     listener.listen("0.0.0.0", 9001)
 
 def startListenThread(port):
-    _listener = threading.Thread(target=startListener, args=(port))
+    _listener = threading.Thread(target=startListener, args=(port,))
     _listener.start()
 
 #Initiating Window
