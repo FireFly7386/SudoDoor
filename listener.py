@@ -10,7 +10,10 @@ def listen(ip,port):
     s.bind((ip, port))
     s.listen(1)
     print("Listening on port " + str(port))
-    conn, addr = s.accept()
+    try:
+        conn, addr = s.accept()
+    except KeyboardInterrupt:
+        print("[+] Shutting down listener...")
     print('Connection received from ',addr)
     running = True
     while running:
