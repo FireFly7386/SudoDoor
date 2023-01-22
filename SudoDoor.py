@@ -8,7 +8,4 @@ running = True
 while running:
     cmd = input(Colors.RESET + "(" + Colors.RED + "SudoDoor" + Colors.RESET + ") ")
     if cmd == "listen":
-        try:
-            listener.listen("0.0.0.0", 9001)
-        except KeyboardInterrupt:
-            print("Nope")
+        listener.listen("0.0.0.0", 9001)

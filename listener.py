@@ -13,7 +13,8 @@ def listen(ip,port):
     try:
         conn, addr = s.accept()
     except KeyboardInterrupt:
-        print("[+] Shutting down listener...")
+        print("\n[+] Shutting down listener...")
+        return
     print('Connection received from ',addr)
     running = True
     while running:
