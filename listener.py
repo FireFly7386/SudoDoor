@@ -19,6 +19,11 @@ def listen(ip,port):
         if (ans.__contains__("KeyboardInterrupt")):
             s.close()
             running = False
+        
+        with open('./tmp/output.txt', 'w') as f:
+            f.write(ans)
+            f.close()
+
         sys.stdout.write(ans)
         command = input()
 
