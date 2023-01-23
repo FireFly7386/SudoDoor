@@ -45,8 +45,8 @@ def scan_host(ip, start_port, end_port, num_threads, verbose):
     for t in threads:
         t.join()
 
-ip = input("Enter the IP address or hostname to scan: ")
-start_port = int(input("Enter the starting port to scan: "))
-end_port = int(input("Enter the ending port to scan: "))
-num_threads = int(input("Enter the number of threads to use: "))
-scan_host(ip, start_port, end_port, num_threads, verbose=False)
+#ip = input("Enter the IP address or hostname to scan: ")
+#start_port = int(input("Enter the starting port to scan: "))
+#end_port = int(input("Enter the ending port to scan: "))
+#num_threads = int(input("Enter the number of threads to use: "))
+#scan_host(ip, start_port, end_port, num_threads, verbose=False)
