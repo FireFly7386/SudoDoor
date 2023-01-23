@@ -41,7 +41,7 @@ def scan_host(ip, start_port, end_port, num_threads, verbose):
         except KeyboardInterrupt:
             print(Colors.BLUE + "[+] " + Colors.RESET + "Shutting down port scan")
             for t in threads:
-                t.stop
+                t._stop()
 
 
 
