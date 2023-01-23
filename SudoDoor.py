@@ -1,6 +1,9 @@
 import listener
 import payloadgen
+import portscan
+
 from colors import Colors
+import os
 
 
 running = True
@@ -16,6 +19,7 @@ while running:
     listen <port> --- starts a listener on given port
     payload <ip> <port> <language> --- generate payload
     payload show --- show payloads
+    scan <ip> <threads> --- scans the open ports from the ip with n threads
     """)
 
         elif cmd.startswith("listen"):
@@ -39,6 +43,24 @@ while running:
             except:
                 print("Usage: payload <ip> <port> <language> or payload show")
                 continue
+        
+        elif cmd.startswith("scan"):
+            #try:
+                args = cmd.split(" ")
+                if args.__len__() == 3:
+                    portscan.scan_host(args[1], 1, 65535, int(args[2]), False)
+
+                elif args.__len__() == 4:
+                    portscan.scan_host(args[1], 1, 65535, int(args[2]), bool(args[3]))
+
+
+                else:
+                    portscan.scan_host(args[1], 1, 65535, 10000, False)
+
+            #except:
+               # print("Usage: scan <host> <threads>")
+                #continue
+
     except KeyboardInterrupt:
         print(Colors.BLUE + "\n[+] " + Colors.RESET + "Shutting down SudoDoor...")
         running = False
