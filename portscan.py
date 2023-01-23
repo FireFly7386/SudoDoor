@@ -35,15 +35,8 @@ def scan_host(ip, start_port, end_port, num_threads, verbose):
             t.start()
             threads.append(t)
 
-        try:
-            for t in threads:
-                t.join()
-        except KeyboardInterrupt:
-            print(Colors.BLUE + "[+] " + Colors.RESET + "Shutting down port scan")
-            for t in threads:
-                t._stop()
-
-
+        for t in threads:
+            t.join()
 
 #ip = input("Enter the IP address or hostname to scan: ")
 #start_port = int(input("Enter the starting port to scan: "))
