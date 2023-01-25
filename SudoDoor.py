@@ -1,9 +1,15 @@
+from colors import Colors
+import os
+import sys
+
+sys.path.append("./tools")
+
+#Tools
 import listener
 import payloadgen
 import portscan
 
-from colors import Colors
-import os
+
 
 
 running = True
