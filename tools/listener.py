@@ -16,7 +16,7 @@ def listen(ip,port):
     except KeyboardInterrupt:
         print(Colors.Blue + "\n[+]" + Colors.RESET + " Shutting down listener...")
         return
-    print('Connection received from ',addr)
+    print(Colors.BLUE + '[+]' + Colors.RESET + 'Connection received from ',addr)
     running = True
     while running:
         try:
